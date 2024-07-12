@@ -52,3 +52,16 @@ robot3.multiTask()
 sleep(0.1)
 robot3.reportBatteryLevel()
 sleep(0.1)
+print("Abnormal change of battery level:")
+robot3.battery_level = -20
+robot3.reportBatteryLevel()
+sleep(0.1)
+print("Another error occurs that erases the robot's name.\n")
+robot3.name = ""
+sleep(0.1)
+print("Another unknown error occurs.\n")
+robot3.status = Status.FAULTY
+sleep(0.1)
+print(f"After self-diagnose, the robot has the following errors:")
+print(robot3.selfDiagnose())
+sleep(0.1)
