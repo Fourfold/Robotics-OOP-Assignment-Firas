@@ -1,12 +1,12 @@
-from robots.cooking_robot import *
-from robots.cleaning_robot import *
+from robots import *
 
 robot1 = CookingRobot("Bob001", 50, Status.IDLE, CookingSkill.INTERMEDIATE)
 robot2 = CleaningRobot("Bob002", 40, Status.IDLE, CleaningTool.BROOM)
+robot3 = MaintenanceRobot("Bob007", 80, Status.IDLE, CookingSkill.EXPERT, CleaningTool.VACUUM)
 
 print("\n")
 
-robot1.report_battery_level()
+robot1.reportBatteryLevel()
 sleep(0.1)
 robot1.work()
 sleep(0.1)
@@ -14,18 +14,22 @@ robot1.work()
 sleep(0.1)
 robot1.charge()
 sleep(0.1)
+robot1.upgradeCookingSkill()
+sleep(0.1)
+robot1.upgradeCookingSkill()
+sleep(0.1)
 robot1.work()
 sleep(0.1)
 
 print("----------------------------------------------------------------------\n")
 
-robot2.report_battery_level()
+robot2.reportBatteryLevel()
 sleep(0.1)
 robot2.work()
 sleep(0.1)
 robot2.work()
 sleep(0.1)
-robot2.getCleaningTool()
+robot2.reportCleaningTool()
 sleep(0.1)
 robot2.setCleaningTool(CleaningTool.MOP)
 sleep(0.1)
@@ -36,3 +40,15 @@ sleep(0.1)
 robot2.work()
 sleep(0.1)
 
+print("----------------------------------------------------------------------\n")
+
+robot3.reportCookingSkill()
+sleep(0.1)
+robot3.reportCleaningTool()
+sleep(0.1)
+robot3.reportBatteryLevel()
+sleep(0.1)
+robot3.multiTask()
+sleep(0.1)
+robot3.reportBatteryLevel()
+sleep(0.1)
